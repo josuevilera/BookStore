@@ -1,7 +1,7 @@
 function Home() {
     return (
         <>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A, praesentium?</p>
+            <h2>Página principal</h2>        
         </>
     );
 }
