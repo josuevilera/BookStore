@@ -1,7 +1,7 @@
 import Header from "./components/header/Header"
 import Footer from "./components/footer/Footer"
-// import Bookspage from "./pages/bookspage/Bookspage"
-import Bookspagenew from "./pages/bookspagenew/Bookspagenew"
+// import Bookspage from "./components/main/bookspage/Bookspage"
+import Bookspagenew from "./components/main/bookspagenew/Bookspagenew"
 
 function App() {
 

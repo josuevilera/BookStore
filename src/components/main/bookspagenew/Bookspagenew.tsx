@@ -1,4 +1,4 @@
-import Booklist from "../../components/main/Booklist";
+import Booklist from "../../main/Booklist";
 
 function Bookspagenew() {
     return (
