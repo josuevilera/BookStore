@@ -1,11 +1,15 @@
-import Header from "./components/Header"
-import Footer from "./components/Footer"
+import Header from "./components/header/Header"
+import Footer from "./components/footer/Footer"
+// import Bookspage from "./pages/bookspage/Bookspage"
+import Bookspagenew from "./pages/bookspagenew/Bookspagenew"
 
 function App() {
 
   return (
     <>
       <Header />
+      {/* <Bookspage id_book={0} id_user={0} title={""} type={""} author={""} price={0} photo={""} /> */}
+      <Bookspagenew />
       <Footer />
     </> 
   )

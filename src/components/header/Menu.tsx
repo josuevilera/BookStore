@@ -1,4 +1,3 @@
-
 function Menu() {
     return (
         <nav className="flex space-x-2">

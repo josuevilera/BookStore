@@ -1,0 +1,12 @@
+.bookspageold {
+    display: flex;
+    flex-flow: column nowrap;
+    border: 1px solid rgb(91, 180, 180);
+    width: 150px;
+    /* &:hover {
+        p {
+        }
+    } */
+    margin: 15px;
+    padding: 10px;
+}

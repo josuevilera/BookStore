@@ -3,7 +3,7 @@ function Logo() {
         <>  
             <div className="flex items-center space-x-4">
                 <img
-                    src="./src/public/logo.svg"
+                    src="./public/logo.svg"
                     alt="logo"
                     width={50}
                 />
