@@ -1,6 +1,23 @@
 import React, { useState } from "react";
+import { useEffect } from 'react';
+
 function Addbook() {
+
+    useEffect(() => {
+        let counter = 0;
+        const interval = setInterval(() => {
+            console.clear();
+            console.log(`Counter: ${counter}`);
+            counter++;
     
+            if (counter > 1000000) {
+                clearInterval(interval);
+            }
+        }, 1000);
+    
+        return () => clearInterval(interval);
+    }, []);
+
     const [inputTitle, setInputTitle] = useState('');
     const [inputAuthor, setInputAuthor] = useState('');
     const [inputTypeBook, setInputTypeBook] = useState('');
