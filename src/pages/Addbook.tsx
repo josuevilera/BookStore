@@ -41,7 +41,7 @@ function Addbook() {
                 className="border border-emerald-200 w-80 mb-28 mx-auto rounded-lg"
             >
                 <h3
-                    className="text-2xl flex justify-center m-3"
+                    className="text-xl font-bold text-center pt-5"
                 >
                     Añadir libro
                 </h3>
@@ -55,7 +55,7 @@ function Addbook() {
                     >
                         Title...
                         <input
-                            className="border-b-2 border-gray-200 hover:border-emerald-200 focus:outline-none "
+                            className="border border-gray-300 rounded p-2"
                             type="text" 
                             placeholder="Book title here"
                             value={inputTitle}
@@ -68,7 +68,7 @@ function Addbook() {
                     >
                         Author:
                         <input
-                            className="border-b-2 border-gray-200 hover:border-emerald-200 focus:outline-none "
+                            className="border border-gray-300 rounded p-2"
                             type="text"
                             placeholder="Book author here"
                             value={inputAuthor}
@@ -81,7 +81,7 @@ function Addbook() {
                     >
                         Type...
                         <input
-                            className="border-b-2 border-gray-200 hover:border-emerald-200 focus:outline-none "
+                            className="border border-gray-300 rounded p-2"
                             type="text"
                             placeholder="Book type here"
                             value={inputTypeBook}
@@ -94,7 +94,7 @@ function Addbook() {
                     >
                         Photo...
                         <input
-                            className="border-b-2 border-gray-200 hover:border-emerald-200 focus:outline-none "
+                            className="border border-gray-300 rounded p-2"
                             type="text"
                             placeholder="Book photo here"
                             value={inputPhoto}
@@ -107,7 +107,7 @@ function Addbook() {
                     >
                         Price...
                         <input
-                            className="border-b-2 border-gray-200 hover:border-emerald-200 focus:outline-none "
+                            className="border border-gray-300 rounded p-2"
                             type="text"
                             placeholder="Book price here"
                             value={inputPrice}
@@ -115,7 +115,7 @@ function Addbook() {
                         />
                     </label>
                     <button
-                        className="text-white bg-emerald-200 bg-gradient-to-tr from-emerald-500 to-emerald-200 rounded-md mx-auto p-3 mb-2 w-40 hover:text-black"
+                        className="text-white bg-emerald-200 bg-gradient-to-tr from-emerald-500 to-emerald-200 rounded-md p-3 w-full hover:text-black"
                         type="submit"
                     >
                         Enviar

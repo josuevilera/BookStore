@@ -38,7 +38,7 @@ function Editbook() {
                 className="border border-emerald-200 w-80 mb-28 mx-auto rounded-lg"
             >
                 <h3
-                    className="text-2xl flex justify-center m-3"
+                    className="text-xl font-bold text-center pt-5"
                 >
                     Actualiza tus datos de usuario
                 </h3>
@@ -50,10 +50,11 @@ function Editbook() {
                     onSubmit={handleSubmit}>
                     <label
                         className="flex justify-around p-3"
-                        htmlFor="">
+                        htmlFor=""
+                    >
                         Name:
                         <input
-                            className="border-b-2 border-gray-200 hover:border-emerald-200 focus:outline-none "
+                            className="border border-gray-300 rounded p-2"
                             type="text"
                             name="Name"
                             placeholder="Your name here"
@@ -63,10 +64,11 @@ function Editbook() {
                     </label>
                     <label
                         className="flex justify-around p-3"
-                        htmlFor="">
+                        htmlFor=""
+                    >
                         Surname:
                         <input
-                            className="border-b-2 border-gray-200 hover:border-emerald-200 focus:outline-none"
+                            className="border border-gray-300 rounded p-2"
                             type="text"
                             name="Surname"
                             placeholder="Your surname here"
@@ -77,10 +79,11 @@ function Editbook() {
                     </label>
                     <label
                         className="flex justify-around p-3"
-                        htmlFor="">
+                        htmlFor=""
+                    >
                         Email:
                         <input
-                            className="border-b-2 border-gray-200 hover:border-emerald-200 focus:outline-none"
+                            className="border border-gray-300 rounded p-2"
                             type="email"
                             name="Email"
                             placeholder="Your email here"
@@ -91,7 +94,8 @@ function Editbook() {
                     </label>
                     <label
                         className="flex flex-col justify-around p-3"
-                        htmlFor="">
+                        htmlFor=""
+                    >
                         Photo:
                         <input
                             type="file"
@@ -102,7 +106,7 @@ function Editbook() {
                     </label>
                         <br />
                     <button
-                        className="text-white bg-emerald-200 bg-gradient-to-tr from-emerald-500 to-emerald-200 rounded-md mx-auto p-3 mb-2 hover:text-black"
+                        className="text-white bg-emerald-200 bg-gradient-to-tr from-emerald-500 to-emerald-200 rounded-md p-3 w-full hover:text-black"
                         type="submit"
                     >
                         Actualizar datos

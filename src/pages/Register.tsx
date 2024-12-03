@@ -29,10 +29,14 @@ function RegisterForm() {
 
     return (
         <form
-            className="flex flex-col gap-4 w-80 pt-10 mx-auto"
+            className="flex flex-col gap-4 w-80 pt-6 mb-28 mx-auto"
             onSubmit={handleRegisterSubmit}
         >
-            <h2 className="text-xl font-bold text-center">Registrarse</h2>
+            <h2 
+                className="text-xl font-bold text-center pt-2"
+        >
+                Registrarse
+            </h2>
             <input
                 type="text"
                 placeholder="Nombre"

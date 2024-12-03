@@ -11,10 +11,14 @@ function LoginForm() {
 
     return (
         <form
-            className="flex flex-col gap-4 w-80 pt-10 mx-auto"
+            className="flex flex-col gap-4 w-80 pt-24 mb-28 mx-auto"
             onSubmit={handleLoginSubmit}
         >
-            <h2 className="text-xl font-bold text-center">Iniciar Sesión</h2>
+            <h2 
+                className="text-xl font-bold text-center pt-10"
+            >
+                Iniciar Sesión
+            </h2>
             <input
                 type="email"
                 placeholder="Correo Electrónico"
