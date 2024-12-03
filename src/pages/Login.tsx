@@ -10,7 +10,7 @@ function LoginForm() {
         e.preventDefault();
         console.log("Login Data:", { email, password });
 
-        setSuccessMessage("¡Correo creado con éxito!");
+        setSuccessMessage("¡Correo válido!");
         setTimeout(() => setSuccessMessage(""), 3000);
     }
 
@@ -60,7 +60,7 @@ function LoginForm() {
             >
                 Iniciar Sesión
             </button>
-            
+
             {successMessage && (
                 <div className="text-center bg-emerald-500 text-white font-semibold rounded-md p-2 mt-4">
                     {successMessage}
