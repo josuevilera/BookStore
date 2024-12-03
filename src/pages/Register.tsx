@@ -10,6 +10,7 @@ function RegisterForm() {
         confirmPassword: "",
     });
 
+    const [successMessage, setSuccessMessage] = useState("");
     function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = e.target;
         setFormValues({ ...formValues, [name]: value });
@@ -25,6 +26,9 @@ function RegisterForm() {
         }
 
         console.log("Registration Data:", formValues);
+
+        setSuccessMessage("¡Cuenta registrada con éxito!");
+        setTimeout(() => setSuccessMessage(""), 3000);
     }
 
     return (
@@ -40,62 +44,104 @@ function RegisterForm() {
             <input
                 type="text"
                 placeholder="Nombre"
-                className="border border-gray-300 rounded p-2"
+                className="border border-gray-300 rounded p-2 peer"
                 name="name"
                 value={formValues.name}
                 onChange={handleInputChange}
+                pattern="^[a-zA-Z\s]+$"
                 required
             />
+            <span
+                className="text-sm text-red-500 hidden peer-invalid:block"
+            >
+                Please, enter a valid name
+            </span>
             <input
                 type="text"
                 placeholder="Apellido"
-                className="border border-gray-300 rounded p-2"
+                className="border border-gray-300 rounded p-2 peer"
                 name="surname"
                 value={formValues.surname}
                 onChange={handleInputChange}
+                pattern="^[a-zA-Z\s]+$"
                 required
             />
+            <span
+                className="text-sm text-red-500 hidden peer-invalid:block"
+            >
+                Please, enter a valid surname
+            </span>
             <input
                 type="email"
                 placeholder="Correo Electrónico"
-                className="border border-gray-300 rounded p-2"
+                className="border border-gray-300 rounded p-2 peer"
                 name="email"
                 value={formValues.email}
                 onChange={handleInputChange}
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                 required
             />
+            <span
+                className="text-sm text-red-500 hidden peer-invalid:block"
+            >
+                Enter a valid mail
+            </span>
             <input
                 type="url"
                 placeholder="URL de la Foto"
-                className="border border-gray-300 rounded p-2"
+                className="border border-gray-300 rounded p-2 peer"
                 name="photo"
                 value={formValues.photo}
                 onChange={handleInputChange}
+                pattern="https?://.+"
             />
+            <span
+                className="text-sm text-red-500 hidden peer-invalid:block"
+            >
+                Please, enter a valid URL
+            </span>
             <input
                 type="password"
                 placeholder="Contraseña"
-                className="border border-gray-300 rounded p-2"
+                className="border border-gray-300 rounded p-2 peer"
                 name="password"
                 value={formValues.password}
                 onChange={handleInputChange}
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                 required
             />
+            <span
+                className="text-sm text-red-500 hidden peer-invalid:block"
+            >
+                Please, enter a valid password
+            </span>
             <input
                 type="password"
                 placeholder="Confirmar Contraseña"
-                className="border border-gray-300 rounded p-2"
+                className="border border-gray-300 rounded p-2 peer" 
                 name="confirmPassword"
                 value={formValues.confirmPassword}
                 onChange={handleInputChange}
+                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                 required
             />
+            <span
+                className="text-sm text-red-500 hidden peer-invalid:block"
+            >
+                Enter the same password
+            </span>
             <button
                 className="text-white bg-emerald-200 bg-gradient-to-tr from-emerald-500 to-emerald-200 rounded-md p-3 w-full hover:text-black"
                 type="submit"
             >
                 Registrarse
             </button>
+            
+            {successMessage && (
+                <div className="text-center bg-emerald-500 text-white font-semibold rounded-md p-2 mt-4">
+                    {successMessage}
+                </div>
+            )}
         </form>
     );
 }
