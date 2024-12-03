@@ -7,6 +7,7 @@ function Menu() {
     return (
             <nav className="flex flex-col md:flex-row md:space-x-4 md:space-y-0 p-4 ml-8 space-y-4">
             <NavLink
+                className="hover:text-green-500 transition-transform duration-150 active:scale-110 active:text-green-500"
                 to="/"
             >
                 Home
@@ -14,19 +15,19 @@ function Menu() {
             {user && (
                 <>
                     <NavLink
-                    className="[&.active]:text-blue-500 [&.active]:underline"
+                        className="hover:text-green-500 transition-transform duration-150 active:scale-110 active:text-green-500"
                         to="/Books"
                     >
                         Books
                     </NavLink>
                     <NavLink
-                        className="[&.active]:text-blue-500 [&.active]:underline"
+                        className="hover:text-green-500 transition-transform duration-150 active:scale-110 active:text-black"
                         to="/Profile"
                     >
                         Profile
                     </NavLink>
                     <NavLink
-                        className="[&.active]:text-blue-500 [&.active]:underline"
+                        className="hover:text-green-500 transition-transform duration-150 active:scale-110 active:text-black"
                         to="/Logout"
                     >
                         Logout
@@ -36,14 +37,14 @@ function Menu() {
             {!user && (
                 <>
                     <NavLink
-                    className="[&.active]:text-blue-500 [&.active]:underline"
-                    to="/login"
+                        className="hover:text-green-500 transition-transform duration-150 active:scale-110 active:text-black"
+                        to="/login"
                     >
                         Login
                     </NavLink>
                     <NavLink
-                    className="[&.active]:text-blue-500 [&.active]:underline"
-                    to="/register"
+                        className="hover:text-green-500 transition-transform duration-150 active:scale-110 active:text-black"
+                        to="/register"
                     >
                         Register
                     </NavLink>
