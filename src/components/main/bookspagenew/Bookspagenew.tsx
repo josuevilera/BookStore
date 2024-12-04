@@ -1,9 +1,10 @@
-import Booklist from "../../main/Booklist";
-
+// import Booklist from "../../main/Booklist";
+import Booklistnew from "../Booklistnew";
 function Bookspagenew() {
     return (
         <>
-            <Booklist />
+            {/* <Booklist /> */}
+            <Booklistnew />
         </>
     );
 }
