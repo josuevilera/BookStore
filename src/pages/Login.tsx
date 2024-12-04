@@ -13,7 +13,7 @@ function LoginForm() {
         setIsLoading(true);
 
         try {
-            const response = await axios.post('https://localhost:5173/login', { email, password });
+            const response = await axios.post('localhost:5173/login', { email, password });
             console.log("Login Data:", response.data);
             setSuccessMessage("¡Correo válido!");
         } catch (error) {

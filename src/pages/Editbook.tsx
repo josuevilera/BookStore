@@ -1,21 +1,23 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod"; 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { toast } from "react-toastify"; // Importación de react-toastify
+import "react-toastify/dist/ReactToastify.css"; // Importa el CSS de react-toastify
 
 // Definimos el esquema con Zod
 const schema = z.object({
   title: z
     .string()
-    .min(3, { message: "Title must be at least 3 characters long" }) 
-    .regex(/^[a-zA-Z0-9\s]+$/, { message: "Title must contain only alphanumeric characters and spaces" }), 
+    .min(3, { message: "Title must be at least 3 characters long" })
+    .regex(/^[a-zA-Z0-9\s]+$/, { message: "Title must contain only alphanumeric characters and spaces" }),
   author: z
     .string()
-    .min(3, { message: "Author must be at least 3 characters long" }) 
-    .regex(/^[a-zA-Z\s]+$/, { message: "Author name must contain only letters and spaces" }), 
+    .min(3, { message: "Author must be at least 3 characters long" })
+    .regex(/^[a-zA-Z\s]+$/, { message: "Author name must contain only letters and spaces" }),
   type: z
     .string()
-    .min(3, { message: "Type must be at least 3 characters long" }) 
+    .min(3, { message: "Type must be at least 3 characters long" })
     .regex(/^[a-zA-Z\s]+$/, { message: "Type must contain only letters and spaces" }),
   photo: z
     .string()
@@ -23,10 +25,10 @@ const schema = z.object({
     .optional(),
   price: z
     .string()
-    .min(1, { message: "Price is required" }) 
+    .min(1, { message: "Price is required" })
     .refine((value) => /^\d+(\.\d{1,2})?$/.test(value), {
-      message: "Price must be a valid number with up to two decimal places"
-    })
+      message: "Price must be a valid number with up to two decimal places",
+    }),
 });
 
 // Definimos los tipos de datos del formulario
@@ -56,13 +58,10 @@ function EditBook({ bookToEdit }: EditBookProps) {
     defaultValues: bookToEdit || { title: "", author: "", type: "", price: "" },
   });
 
-  const [successMessage, setSuccessMessage] = useState("");
-
   // Función de submit del formulario
   const onSubmit: SubmitHandler<FormData> = (data) => {
     console.log(data);
-    setSuccessMessage("Book updated successfully!");
-    setTimeout(() => setSuccessMessage(""), 3000); // Mensaje de éxito por 3 segundos
+    toast.success("Book updated successfully!"); // Notificación de éxito
   };
 
   useEffect(() => {
@@ -157,11 +156,7 @@ function EditBook({ bookToEdit }: EditBookProps) {
         </button>
       </form>
 
-      {successMessage && (
-        <div className="text-center bg-emerald-500 text-white font-semibold rounded-md p-2 mt-4">
-          {successMessage}
-        </div>
-      )}
+      {/* Se eliminaron las alertas de éxito y error previas, ya que se reemplazaron con los toasts */}
     </section>
   );
 }

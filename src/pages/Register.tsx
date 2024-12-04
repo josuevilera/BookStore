@@ -32,7 +32,7 @@ function RegisterForm() {
         setIsLoading(true);
 
         try {
-            const response = await axios.post("https://localhost:5173/register", formValues);
+            const response = await axios.post("localhost:5173/register", formValues);
             console.log("Registration Data:", response.data);
             setSuccessMessage("¡Cuenta registrada con éxito!");
         } catch (error) {

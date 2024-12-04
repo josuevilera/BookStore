@@ -1,18 +1,18 @@
-import AppRoutes from "./routes/AppRoutes"
-import Header from "./components/header/Header"
-import Footer from "./components/footer/Footer"
-// import Bookspage from "./components/main/bookspage/Bookspage"
+import AppRoutes from "./routes/AppRoutes";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-
   return (
     <>
       <Header />
-      {/* <Bookspage id_book={0} id_user={0} title={""} type={""} author={""} price={0} photo={""} /> */}
+      <ToastContainer />
       <AppRoutes />
       <Footer />
-    </> 
-  )
+    </>
+  );
 }
 
-export default App
+export default App;
