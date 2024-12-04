@@ -78,7 +78,7 @@ function Profile() {
                         placeholder="Your email here"
                         className={`border rounded p-2 ${errors.email ? "border-red-500" : "border-gray-300"}`}
                         {...register("email", {
-                            required: "EEmail is required",
+                            required: "Email is required",
                             pattern: {
                                 value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                                 message: "Please, enter a valid email",
