@@ -1,4 +1,6 @@
 import { useState } from "react";
+import axios from "axios";
+import Loading from "./Loading";
 
 function RegisterForm() {
     const [formValues, setFormValues] = useState({
@@ -10,13 +12,15 @@ function RegisterForm() {
         confirmPassword: "",
     });
 
-    const [successMessage, setSuccessMessage] = useState("");
+    const [successMessage, setSuccessMessage] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+
     function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
         const { name, value } = e.target;
         setFormValues({ ...formValues, [name]: value });
     }
 
-    function handleRegisterSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleRegisterSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
         const { password, confirmPassword } = formValues;
 
@@ -25,10 +29,23 @@ function RegisterForm() {
             return;
         }
 
-        console.log("Registration Data:", formValues);
+        setIsLoading(true);
 
-        setSuccessMessage("¡Cuenta registrada con éxito!");
-        setTimeout(() => setSuccessMessage(""), 3000);
+        try {
+            const response = await axios.post("https://localhost:5173/register", formValues);
+            console.log("Registration Data:", response.data);
+            setSuccessMessage("¡Cuenta registrada con éxito!");
+        } catch (error) {
+            console.error("Error al registrar la cuenta:", error);
+            setSuccessMessage("Ocurrió un error al registrar la cuenta. Intenta nuevamente.");
+        } finally {
+            setIsLoading(false);
+            setTimeout(() => setSuccessMessage(""), 3000);
+        }
+    }
+
+    if (isLoading) {
+        return <Loading />;
     }
 
     return (
@@ -36,9 +53,7 @@ function RegisterForm() {
             className="flex flex-col gap-4 w-80 pt-6 mb-28 mx-auto"
             onSubmit={handleRegisterSubmit}
         >
-            <h2 
-                className="text-xl font-bold text-center pt-2"
-        >
+            <h2 className="text-xl font-bold text-center pt-2">
                 Registrarse
             </h2>
             <input
@@ -51,9 +66,7 @@ function RegisterForm() {
                 pattern="^[a-zA-Z\s]+$"
                 required
             />
-            <span
-                className="text-sm text-red-500 hidden peer-invalid:block"
-            >
+            <span className="text-sm text-red-500 hidden peer-invalid:block">
                 Please, enter a valid name
             </span>
             <input
@@ -66,9 +79,7 @@ function RegisterForm() {
                 pattern="^[a-zA-Z\s]+$"
                 required
             />
-            <span
-                className="text-sm text-red-500 hidden peer-invalid:block"
-            >
+            <span className="text-sm text-red-500 hidden peer-invalid:block">
                 Please, enter a valid surname
             </span>
             <input
@@ -81,9 +92,7 @@ function RegisterForm() {
                 pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
                 required
             />
-            <span
-                className="text-sm text-red-500 hidden peer-invalid:block"
-            >
+            <span className="text-sm text-red-500 hidden peer-invalid:block">
                 Enter a valid mail
             </span>
             <input
@@ -95,9 +104,7 @@ function RegisterForm() {
                 onChange={handleInputChange}
                 pattern="https?://.+"
             />
-            <span
-                className="text-sm text-red-500 hidden peer-invalid:block"
-            >
+            <span className="text-sm text-red-500 hidden peer-invalid:block">
                 Please, enter a valid URL
             </span>
             <input
@@ -110,9 +117,7 @@ function RegisterForm() {
                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                 required
             />
-            <span
-                className="text-sm text-red-500 hidden peer-invalid:block"
-            >
+            <span className="text-sm text-red-500 hidden peer-invalid:block">
                 Please, enter a valid password
             </span>
             <input
@@ -125,9 +130,7 @@ function RegisterForm() {
                 pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
                 required
             />
-            <span
-                className="text-sm text-red-500 hidden peer-invalid:block"
-            >
+            <span className="text-sm text-red-500 hidden peer-invalid:block">
                 Enter the same password
             </span>
             <button

@@ -39,7 +39,7 @@ function Booklistnew() {
   }, []);
 
   // Muestra error si ocurre
-  if (error) return <div className="text-red-500">Error: {error}</div>;
+  if (error) return <div className=" flex justify-center text-red-500">Error: {error}</div>;
 
   // Muestra el componente de carga si no hay libros
   if (books.length === 0) return <Loading />;

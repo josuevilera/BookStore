@@ -1,17 +1,32 @@
 import { useState } from "react";
+import axios from "axios";
+import Loading from "./Loading";
 
 function LoginForm() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
-    
+    const [email, setEmail] = useState<string>("");
+    const [password, setPassword] = useState<string>("");
+    const [successMessage, setSuccessMessage] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
-    function handleLoginSubmit(e: React.FormEvent<HTMLFormElement>) {
+    async function handleLoginSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        console.log("Login Data:", { email, password });
+        setIsLoading(true);
 
-        setSuccessMessage("¡Correo válido!");
-        setTimeout(() => setSuccessMessage(""), 3000);
+        try {
+            const response = await axios.post('https://localhost:5173/login', { email, password });
+            console.log("Login Data:", response.data);
+            setSuccessMessage("¡Correo válido!");
+        } catch (error) {
+            console.error("Error al iniciar sesión:", error);
+            setSuccessMessage("Error al iniciar sesión. Verifica tus credenciales.");
+        } finally {
+            setIsLoading(false);
+            setTimeout(() => setSuccessMessage(""), 3000);
+        }
+    }
+
+    if (isLoading) {
+        return <Loading />;
     }
 
     return (
@@ -19,9 +34,7 @@ function LoginForm() {
             className="flex flex-col gap-4 w-80 pt-24 mb-28 mx-auto"
             onSubmit={handleLoginSubmit}
         >
-            <h2 
-                className="text-xl font-bold text-center pt-10"
-            >
+            <h2 className="text-xl font-bold text-center pt-10">
                 Iniciar Sesión
             </h2>
             <input
@@ -46,7 +59,6 @@ function LoginForm() {
                 onChange={(e) => setPassword(e.target.value)}
                 maxLength={20}
                 minLength={5}
-                // pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{5,20}$"
                 required
             />
             <span
