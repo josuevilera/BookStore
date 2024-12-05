@@ -3,14 +3,17 @@ import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { UserProvider } from "./context/UserProvider";
 
 function App() {
   return (
     <>
-      <Header />
-      <ToastContainer />
-      <AppRoutes />
-      <Footer />
+      <UserProvider>
+        <Header />
+        <ToastContainer />
+        <AppRoutes />
+        <Footer />
+      </UserProvider>
     </>
   );
 }

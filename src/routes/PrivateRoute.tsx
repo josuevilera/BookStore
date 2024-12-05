@@ -1,9 +1,12 @@
 import {Outlet, Navigate} from 'react-router-dom';
-import user from "../list/user";
+import { useUser } from "../../src/context/UserContext"
 
 function PrivateRoute() {
+    const { user } = useUser();  // Accede al usuario desde el contexto
 
-    if (user) return <Outlet />;
+    if (user?.loggedIn) {
+        return <Outlet />;
+    }
 
     return <Navigate to="/login" />
 }

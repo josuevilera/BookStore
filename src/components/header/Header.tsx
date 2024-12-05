@@ -10,7 +10,7 @@ function Header() {
 
     return (
         <>
-            <header className="flex items-center justify-between h-20 px-4 bg-emerald-300">
+            <header className="flex items-center justify-between h-20 px-4 bg-emerald-200">
                 {/* Logo */}
                 <Logo />
 

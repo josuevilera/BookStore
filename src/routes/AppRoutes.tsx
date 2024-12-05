@@ -32,7 +32,7 @@ return (
     <Route element={<PrivateRoute />}>
         <Route path="/profile" element={<Profile />}>
             <Route path="Addbook" element={<AddBook />}/>
-            <Route path="Editbook" element={<EditBook />}/>
+            <Route path="Editbook" element={<EditBook bookToEdit={null} />}/>
         </Route>
     </Route>
 

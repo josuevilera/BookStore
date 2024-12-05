@@ -49,103 +49,105 @@ function RegisterForm() {
     }
 
     return (
-        <form
-            className="flex flex-col gap-4 w-80 pt-6 mb-28 mx-auto"
-            onSubmit={handleRegisterSubmit}
-        >
-            <h2 className="text-xl font-bold text-center pt-2">
-                Registrarse
-            </h2>
-            <input
-                type="text"
-                placeholder="Nombre"
-                className="border border-gray-300 rounded p-2 peer"
-                name="name"
-                value={formValues.name}
-                onChange={handleInputChange}
-                pattern="^[a-zA-Z\s]+$"
-                required
-            />
-            <span className="text-sm text-red-500 hidden peer-invalid:block">
-                Please, enter a valid name
-            </span>
-            <input
-                type="text"
-                placeholder="Apellido"
-                className="border border-gray-300 rounded p-2 peer"
-                name="surname"
-                value={formValues.surname}
-                onChange={handleInputChange}
-                pattern="^[a-zA-Z\s]+$"
-                required
-            />
-            <span className="text-sm text-red-500 hidden peer-invalid:block">
-                Please, enter a valid surname
-            </span>
-            <input
-                type="email"
-                placeholder="Correo Electrónico"
-                className="border border-gray-300 rounded p-2 peer"
-                name="email"
-                value={formValues.email}
-                onChange={handleInputChange}
-                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-                required
-            />
-            <span className="text-sm text-red-500 hidden peer-invalid:block">
-                Enter a valid mail
-            </span>
-            <input
-                type="url"
-                placeholder="URL de la Foto"
-                className="border border-gray-300 rounded p-2 peer"
-                name="photo"
-                value={formValues.photo}
-                onChange={handleInputChange}
-                pattern="https?://.+"
-            />
-            <span className="text-sm text-red-500 hidden peer-invalid:block">
-                Please, enter a valid URL
-            </span>
-            <input
-                type="password"
-                placeholder="Contraseña"
-                className="border border-gray-300 rounded p-2 peer"
-                name="password"
-                value={formValues.password}
-                onChange={handleInputChange}
-                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-                required
-            />
-            <span className="text-sm text-red-500 hidden peer-invalid:block">
-                Please, enter a valid password
-            </span>
-            <input
-                type="password"
-                placeholder="Confirmar Contraseña"
-                className="border border-gray-300 rounded p-2 peer" 
-                name="confirmPassword"
-                value={formValues.confirmPassword}
-                onChange={handleInputChange}
-                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
-                required
-            />
-            <span className="text-sm text-red-500 hidden peer-invalid:block">
-                Enter the same password
-            </span>
-            <button
-                className="text-white bg-emerald-200 bg-gradient-to-tr from-emerald-500 to-emerald-200 rounded-md p-3 w-full hover:text-black"
-                type="submit"
+        <div className="min-h-screen bg-gradient-to-l from-indigo-100 via-pink-100 to-yellow-100 flex flex-col items-center">
+            <form
+                className="flex flex-col gap-4 w-80 pt-6 mb-28 mx-auto"
+                onSubmit={handleRegisterSubmit}
             >
-                Registrarse
-            </button>
+                <h2 className="text-xl font-bold text-center pt-2">
+                    Registrarse
+                </h2>
+                <input
+                    type="text"
+                    placeholder="Nombre"
+                    className="border border-gray-300 rounded p-2 peer"
+                    name="name"
+                    value={formValues.name}
+                    onChange={handleInputChange}
+                    pattern="^[a-zA-Z\s]+$"
+                    required
+                />
+                <span className="text-sm text-red-500 hidden peer-invalid:block">
+                    Please, enter a valid name
+                </span>
+                <input
+                    type="text"
+                    placeholder="Apellido"
+                    className="border border-gray-300 rounded p-2 peer"
+                    name="surname"
+                    value={formValues.surname}
+                    onChange={handleInputChange}
+                    pattern="^[a-zA-Z\s]+$"
+                    required
+                />
+                <span className="text-sm text-red-500 hidden peer-invalid:block">
+                    Please, enter a valid surname
+                </span>
+                <input
+                    type="email"
+                    placeholder="Correo Electrónico"
+                    className="border border-gray-300 rounded p-2 peer"
+                    name="email"
+                    value={formValues.email}
+                    onChange={handleInputChange}
+                    pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                    required
+                />
+                <span className="text-sm text-red-500 hidden peer-invalid:block">
+                    Enter a valid mail
+                </span>
+                <input
+                    type="url"
+                    placeholder="URL de la Foto"
+                    className="border border-gray-300 rounded p-2 peer"
+                    name="photo"
+                    value={formValues.photo}
+                    onChange={handleInputChange}
+                    pattern="https?://.+"
+                />
+                <span className="text-sm text-red-500 hidden peer-invalid:block">
+                    Please, enter a valid URL
+                </span>
+                <input
+                    type="password"
+                    placeholder="Contraseña"
+                    className="border border-gray-300 rounded p-2 peer"
+                    name="password"
+                    value={formValues.password}
+                    onChange={handleInputChange}
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                    required
+                />
+                <span className="text-sm text-red-500 hidden peer-invalid:block">
+                    Please, enter a valid password
+                </span>
+                <input
+                    type="password"
+                    placeholder="Confirmar Contraseña"
+                    className="border border-gray-300 rounded p-2 peer"
+                    name="confirmPassword"
+                    value={formValues.confirmPassword}
+                    onChange={handleInputChange}
+                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                    required
+                />
+                <span className="text-sm text-red-500 hidden peer-invalid:block">
+                    Enter the same password
+                </span>
+                <button
+                    className="text-white bg-emerald-200 bg-gradient-to-tr from-emerald-500 to-emerald-200 rounded-md p-3 w-full hover:text-black"
+                    type="submit"
+                >
+                    Registrarse
+                </button>
             
-            {successMessage && (
-                <div className="text-center bg-emerald-500 text-white font-semibold rounded-md p-2 mt-4">
-                    {successMessage}
-                </div>
-            )}
-        </form>
+                {successMessage && (
+                    <div className="text-center bg-emerald-500 text-white font-semibold rounded-md p-2 mt-4">
+                        {successMessage}
+                    </div>
+                )}
+            </form>
+        </div>
     );
 }
 

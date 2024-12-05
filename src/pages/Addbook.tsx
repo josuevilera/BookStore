@@ -1,9 +1,12 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useForm, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useUser } from "../../src/context/UserContext";  // Asegúrate de importar el hook del UserContext
+import { Navigate } from "react-router-dom";
 
 // Definimos el esquema con Zod
 const schema = z.object({
@@ -38,6 +41,13 @@ type FormData = {
 };
 
 function AddBook() {
+  const { user } = useUser();  // Accedemos al usuario desde el contexto
+
+  // Si el usuario no está autenticado, redirigimos a la página de login
+  if (!user?.loggedIn) {
+    return <Navigate to="/login" />;
+  }
+
   const {
     register,
     handleSubmit,
